@@ -1,9 +1,28 @@
-## Controlled video generation without finetuning
+# Controlled video generation without finetuning
 
-![demo/demo1.png](demo/demo1.png)
-![demo/demo2.png](demo/demo2.jpg)
+![./demo/demo1.png](demo/demo1.png)
+![./demo/demo2.png](demo/demo2.jpg)
 
-1. Look at https://huggingface.co/thibaud/controlnet-sd21. This is the controlnet + sd 2.1 checkpoint
+
+Generating spatially and temporally consistent
+action-specific videos, such as golf swing sequences,
+using pre-trained diffusion models without domain-
+specific fine-tuning is a significant challenge in video
+synthesis. This project explores novel methodologies
+for zero-shot video generation by leveraging latent
+space manipulations in Stable Diffusion pipelines.
+
+we explored innovative strategies, including:
+- Noise manipulation: Demonstrating the importance of noise progression and fixing noise seeds to enhance temporal coherence.
+- Latent space exploration: Investigating the limitations of naive operations such as latent blending and introducing effective alternatives like intermediate latent copying.
+- Latent differences: Identifying the potential of latent differences as a dynamic feature to guide temporal transitions and semantic shifts.
+- Leveraging original video latents: Integrating pre-existing motion and style cues to refine generated outputs.
+- Novel action-specific pipeline: Proposing a framework inspired by video compression, where aligned latent differences capture generic semantic shifts for scalable video generation.
+
+
+## Guidelines
+
+1. Get the controlnet + sd 2.1 checkpointLook from https://huggingface.co/thibaud/controlnet-sd21.
 2. Convert the `.ckpt` into diffuser directory.
 ```
 python  convert_original_controlnet_to_diffusers.py --checkpoint_path control_v11p_sd21_openpose/cont
